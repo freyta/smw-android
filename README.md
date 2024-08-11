@@ -1,4 +1,4 @@
-# zelda3-android
+# smw-android
 A port of SMW to Android. <br>
 
 Original Repository: https://github.com/snesrev/smw <br>
