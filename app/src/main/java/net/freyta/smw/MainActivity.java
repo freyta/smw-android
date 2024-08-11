@@ -89,16 +89,20 @@ public class MainActivity extends SDLActivity{
                 // to the required folder. smw_assets.dat must be in the assets folder already
 //                File smwAssets = new File(externalDir, "smw_assets.dat");
 
-                File datNotice = new File(externalDir, "PLACE zelda3_assets.dat HERE");
+                File datNotice = new File(externalDir, "PLACE smw_assets.dat HERE");
 
                 File saves_folder = new File(externalDir+ File.separator + "saves");
 
                 File saves_ref_folder = new File(saves_folder + File.separator + "ref");
 
+                File saves_playthrough_folder = new File(externalDir + File.separator + "playthrough");
+
                 // Check if the folder doesn't exist, then create it
                 saves_folder.mkdirs();
 
                 saves_ref_folder.mkdirs();
+
+                saves_playthrough_folder.mkdirs();
 
 
                 //copy reference saves and config to external data dir so user can change if needed.

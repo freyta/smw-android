@@ -58,7 +58,7 @@ const char *StringStartsWithNoCase(const char *a, const char *b) {
 //  return buffer;
 //}
 
-//This was added to read from the external data dir. Android/data/net.freyta.zelda3
+//This was added to read from the external data dir. Android/data/net.freyta.smw
 uint8_t *ReadWholeFile(const char *name, size_t *length) {
   const char* externalDir = SDL_AndroidGetExternalStoragePath();
 
