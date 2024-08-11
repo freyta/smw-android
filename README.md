@@ -11,7 +11,10 @@ NOTE: Controller only. No touch controls yet. <br>
 How to Change Settings: <br>
 Android/data/net.freyta.smw/files contains smw.ini. Use a text editor to change options. <br>
 
-Default Settings:
+Default Settings:<br>
 L3 Save State <br>
-L3 Load State <br>
-Fullscreen(no android on-screen controls) <br>
+R3 Load State <br>
+
+------
+
+This is a cobbled together version from [Waterdish](https://github.com/Waterdish/zelda3-android). Full credit goes to them, I just ported the SMW code over.
