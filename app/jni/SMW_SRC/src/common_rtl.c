@@ -595,7 +595,6 @@ void RtlSaveLoad(int cmd, int slot) {
       return;
     }
     RtlLoadFromFile(rwops, cmd == kSaveLoad_Replay);
-    fprintf(stderr, "State loaded");
     SDL_AndroidShowToast("State loaded", 0, 0, 0, 0);
     SDL_RWclose(rwops);
   } else {
