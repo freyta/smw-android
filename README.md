@@ -19,14 +19,14 @@ R3 Load State <br>
 
 This is a cobbled together version from [Waterdish](https://github.com/Waterdish/zelda3-android). Full credit goes to them, I just ported the SMW code over.
 =======
-Default Settings for gamepad:  
-L3 = Save State
+Default Settings for gamepad:  <br>
+L3 = Save State<br>
 L3 = Load State <br>
 
-Default Settings for touch screen:
-Start + R = Save State
-Start + L = Load State
-Known issues with touch screen: pressing B while holding Y will shortly release Y (You can't jump holding a shell).
+Default Settings for touch screen:<br>
+Start + R = Save State<br>
+Start + L = Load State<br>
+Known issues with touch screen: pressing B while holding Y will shortly release Y (You can't jump holding a shell).<br>
 
 *Note: Credit to [@yeticarus](https://github.com/yeticarus) for their touch screen code.* 
 
