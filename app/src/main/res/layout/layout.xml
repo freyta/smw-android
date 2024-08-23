@@ -16,6 +16,8 @@
         android:layout_marginRight="8dp"
         android:contentDescription="@string/keyboard"
         android:src="@android:drawable/ic_dialog_dialer"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,9 +29,10 @@
         android:background="#00FFFFFF"
         android:text="@string/start_button"
         android:src="@drawable/start_button"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/Button_B"
+        app:layout_constraintStart_toStartOf="@id/Button_ABXY"
         app:layout_constraintHorizontal_bias="0.66"/>
 
 
@@ -41,52 +44,11 @@
         android:background="#00FFFFFF"
         android:text="@string/select_button"
         android:src="@drawable/select_button"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/Button_Dpad"
         app:layout_constraintHorizontal_bias="0.33"/>
-
-    <ImageButton
-        android:id="@+id/Button_B"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="#00FFFFFF"
-        android:contentDescription="@string/button_b"
-        android:src="@drawable/b_button"
-        app:layout_constraintBottom_toTopOf="@id/Button_start"
-        app:layout_constraintEnd_toStartOf="@id/Button_A" />
-
-    <ImageButton
-        android:id="@+id/Button_A"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:background="#00FFFFFF"
-        android:contentDescription="@string/button_a"
-        android:src="@drawable/a_button"
-        app:layout_constraintBottom_toTopOf="@id/Button_B"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageButton
-        android:id="@+id/Button_X"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="#00FFFFFF"
-        android:contentDescription="@string/button_x"
-        android:src="@drawable/x_button"
-        app:layout_constraintBottom_toTopOf="@id/Button_A"
-        app:layout_constraintEnd_toStartOf="@id/Button_A" />
-
-    <ImageButton
-        android:id="@+id/Button_Y"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="#00FFFFFF"
-        android:contentDescription="@string/button_y"
-        android:src="@drawable/y_button"
-        app:layout_constraintEnd_toStartOf="@id/Button_X"
-        app:layout_constraintTop_toBottomOf="@id/Button_X" />
 
     <ImageButton
         android:id="@+id/Button_L"
@@ -96,6 +58,8 @@
         android:background="#00FFFFFF"
         android:contentDescription="@string/button_l"
         android:src="@drawable/l_button"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         app:layout_constraintBottom_toTopOf="@id/Button_Dpad"
         app:layout_constraintStart_toStartOf="@id/Button_Dpad" />
 
@@ -107,8 +71,10 @@
         android:background="#00FFFFFF"
         android:contentDescription="@string/button_r"
         android:src="@drawable/r_button"
-        app:layout_constraintBottom_toTopOf="@id/Button_X"
-        app:layout_constraintEnd_toEndOf="@id/Button_A" />
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toTopOf="@id/Button_ABXY"
+        app:layout_constraintEnd_toEndOf="@id/Button_ABXY" />
 
     <ImageButton
         android:id="@+id/Button_Dpad"
@@ -117,8 +83,22 @@
         android:background="#00FFFFFF"
         android:contentDescription="@string/dpad"
         android:src="@drawable/d_pad"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
         app:layout_constraintBottom_toTopOf="@id/Button_select"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/Button_ABXY"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="@string/abxy"
+        android:src="@drawable/abxy"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toTopOf="@id/Button_start"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
         android:id="@+id/Button_Turbo"
