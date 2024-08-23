@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SMW</string>
     <string name="dpad">dpad</string>
+    <string name="abxy">A B X Y buttons </string>
     <string name="select_button">Select</string>
     <string name="start_button">Start</string>
     <string name="button_a">A</string>
