@@ -29,7 +29,7 @@ import androidx.core.content.ContextCompat;
 //This class is the main SDLActivity and just sets up a bunch of default files
 public class MainActivity extends SDLActivity{
 
-
+    public boolean[] hasScreenBeenTouched = {false};
     private static final int STORAGE_PERMISSION_REQUEST_CODE = 1;
 
     // Allows us to check for multiple presses
@@ -178,11 +178,11 @@ public class MainActivity extends SDLActivity{
         int keyCodeFor_Down = KeyEvent.KEYCODE_H;
         int keyCodeFor_Left = KeyEvent.KEYCODE_G;
         int keyCodeFor_Right = KeyEvent.KEYCODE_J;
-        int keyCodeFor_Turbo = KeyEvent.KEYCODE_M;
+        int keyCodeFor_Turbo = KeyEvent.KEYCODE_T;
         int keyCodeFor_LoadState = KeyEvent.KEYCODE_O;
         int keyCodeFor_SaveState = KeyEvent.KEYCODE_Q;
 
-        final boolean[] hasScreenBeenTouched = {false};
+        //final boolean[] hasScreenBeenTouched = {false};
 
         // Manage touch events from the keys
         overlayView.findViewById(R.id.ButtonKeyboard).setOnClickListener(new View.OnClickListener() {
@@ -221,62 +221,69 @@ public class MainActivity extends SDLActivity{
                 return false;
             }
         });
-        overlayView.findViewById(R.id.Button_A).setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch(motionEvent.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        onNativeKeyDown(keyCodeFor_A);
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                        onNativeKeyUp(keyCodeFor_A);
-                        return true;
-                }
-                return false;
-            }
-        });
-        overlayView.findViewById(R.id.Button_B).setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch(motionEvent.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        onNativeKeyDown(keyCodeFor_B);
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                        onNativeKeyUp(keyCodeFor_B);
-                        return true;
-                }
-                return false;
-            }
-        });
-        overlayView.findViewById(R.id.Button_X).setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch(motionEvent.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        onNativeKeyDown(keyCodeFor_X);
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                        onNativeKeyUp(keyCodeFor_X);
-                        return true;
-                }
-                return false;
-            }
-        });
-        overlayView.findViewById(R.id.Button_Y).setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch(motionEvent.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        onNativeKeyDown(keyCodeFor_Y);
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                        onNativeKeyUp(keyCodeFor_Y);
-                        return true;
-                }
-                return false;
-            }
-        });
+//        overlayView.findViewById(R.id.Button_A).setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//                switch(motionEvent.getAction()){
+//                    case MotionEvent.ACTION_DOWN:
+//                        onNativeKeyDown(keyCodeFor_A);
+//                        return true;
+//                    case MotionEvent.ACTION_UP:
+//                        onNativeKeyUp(keyCodeFor_A);
+//                        return true;
+//                }
+//                return false;
+//            }
+//        });
+//        overlayView.findViewById(R.id.Button_B).setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//                switch(motionEvent.getAction()){
+//
+//                    case MotionEvent.ACTION_HOVER_ENTER:
+//                    case MotionEvent.ACTION_MOVE:
+//                    case MotionEvent.ACTION_DOWN:
+//                        onNativeKeyDown(keyCodeFor_B);
+//                        return true;
+//
+//                    case MotionEvent.ACTION_HOVER_EXIT:
+//                    case MotionEvent.ACTION_OUTSIDE:
+//                    case MotionEvent.ACTION_UP:
+//                        onNativeKeyUp(keyCodeFor_B);
+//                        return true;
+//
+//                }
+//                return false;
+//            }
+//        });
+//        overlayView.findViewById(R.id.Button_X).setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//                switch(motionEvent.getAction()){
+//                    case MotionEvent.ACTION_DOWN:
+//                        onNativeKeyDown(keyCodeFor_X);
+//                        return true;
+//                    case MotionEvent.ACTION_UP:
+//                        onNativeKeyUp(keyCodeFor_X);
+//                        return true;
+//                }
+//                return false;
+//            }
+//        });
+//        overlayView.findViewById(R.id.Button_Y).setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View view, MotionEvent motionEvent) {
+//                switch(motionEvent.getAction()){
+//                    case MotionEvent.ACTION_DOWN:
+//                        onNativeKeyDown(keyCodeFor_Y);
+//                        return true;
+//                    case MotionEvent.ACTION_UP:
+//                        onNativeKeyUp(keyCodeFor_Y);
+//                        return true;
+//                }
+//                return false;
+//            }
+//        });
         overlayView.findViewById(R.id.Button_L).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -340,6 +347,20 @@ public class MainActivity extends SDLActivity{
             }
         });
 
+        ((SeekBar)overlayView.findViewById(R.id.seekBar_Alpha)).setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar view, int progress, boolean fromUser) {
+                float alpha = progress/100f;
+                overlayView.setAlpha(alpha);
+            }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+
         overlayView.findViewById(R.id.Button_Dpad).setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -386,6 +407,55 @@ public class MainActivity extends SDLActivity{
                 return false;
             }
         });
+
+        overlayView.findViewById(R.id.Button_ABXY).setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                switch(motionEvent.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        if (motionEvent.getX() > (view.getWidth()*0.67)) {
+                            onNativeKeyDown(keyCodeFor_A);
+                        }else if (motionEvent.getX() < (view.getWidth()*0.33)) {
+                            onNativeKeyDown(keyCodeFor_Y);
+                        }
+                        if (motionEvent.getY() > (view.getHeight()*0.67)) {
+                            onNativeKeyDown(keyCodeFor_B);
+                        }else if (motionEvent.getY() < (view.getHeight()*0.33)) {
+                            onNativeKeyDown(keyCodeFor_X);
+                        }else{
+                        }
+                        return true;
+
+                    case MotionEvent.ACTION_UP:
+                        onNativeKeyUp(keyCodeFor_Y);
+                        onNativeKeyUp(keyCodeFor_A);
+                        onNativeKeyUp(keyCodeFor_B);
+                        onNativeKeyUp(keyCodeFor_X);
+                        return true;
+
+                    case MotionEvent.ACTION_MOVE: //Support sliding on the ABXY
+                        onNativeKeyUp(keyCodeFor_Y);
+                        onNativeKeyUp(keyCodeFor_A);
+                        onNativeKeyUp(keyCodeFor_B);
+                        onNativeKeyUp(keyCodeFor_X);
+                        if (motionEvent.getX() > (view.getWidth()*0.67)) { // right
+                            onNativeKeyDown(keyCodeFor_A);
+                        }else if (motionEvent.getX() < (view.getWidth()*0.33)) {// left
+                            onNativeKeyDown(keyCodeFor_Y);
+                        }
+                        if (motionEvent.getY() > (view.getHeight()*0.67)) { // down
+                            onNativeKeyDown(keyCodeFor_B);
+                        }else if (motionEvent.getY() < (view.getHeight()*0.33)) { // up
+                            onNativeKeyDown(keyCodeFor_X);
+                        }else{
+                        }
+                        return true;
+                }
+                return false;
+            }
+        });
+
+
     }
     private void writeDataToFile(File file,InputStream inputStream) {
         try {
